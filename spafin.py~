@@ -1,0 +1,58 @@
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/test")
+def test():
+        html = '<div align="center">'
+        html+= '<table width="30%" border="4">'
+        html+= '<tr><td colspan="2" align="center">Display Area</td></tr>'
+        html+= '<tr><td>Numeric Buttons</td>'
+        html+= '<td>Function Buttons</td>'
+        html+= '</tr></table></div>'
+
+        calc = ''
+        calc+= '<FORM NAME="Calc">'
+        calc+= '<TABLE BORDER=4>'
+        calc+= '<TR>'
+        calc+= '<TD>'
+        calc+= '<INPUT TYPE="text"   NAME="Input" Size="16">'
+        calc+= '<br>'
+        calc+= '</TD>'
+        calc+= '</TR>'
+        calc+= '<TR>'
+        calc+= '<TD>'
+        calc+= '<INPUT TYPE="button" NAME="one"   VALUE="  1  " OnClick="Calc.Input.value += \'1\'">'
+        calc+= '<INPUT TYPE="button" NAME="two"   VALUE="  2  " OnCLick="Calc.Input.value += \'2\'">'
+        calc+= '<INPUT TYPE="button" NAME="three" VALUE="  3  " OnClick="Calc.Input.value += \'3\'">'
+        calc+= '<INPUT TYPE="button" NAME="plus"  VALUE="  +  " OnClick="Calc.Input.value += \' + \'">'
+        calc+= '<br>'
+        calc+= '<INPUT TYPE="button" NAME="four"  VALUE="  4  " OnClick="Calc.Input.value += \'4\'">'
+        calc+= '<INPUT TYPE="button" NAME="five"  VALUE="  5  " OnCLick="Calc.Input.value += \'5\'">'
+        calc+= '<INPUT TYPE="button" NAME="six"   VALUE="  6  " OnClick="Calc.Input.value += \'6\'">'
+        calc+= '<INPUT TYPE="button" NAME="minus" VALUE="  -  " OnClick="Calc.Input.value += \' - \'">'
+        calc+= '<br>'
+        calc+= '<INPUT TYPE="button" NAME="seven" VALUE="  7  " OnClick="Calc.Input.value += \'7\'">'
+        calc+= '<INPUT TYPE="button" NAME="eight" VALUE="  8  " OnCLick="Calc.Input.value += \'8\'">'
+        calc+= '<INPUT TYPE="button" NAME="nine"  VALUE="  9  " OnClick="Calc.Input.value += \'9\'">'
+        calc+= '<INPUT TYPE="button" NAME="times" VALUE="  x  " OnClick="Calc.Input.value += \' * \'">'
+        calc+= '<br>'
+        calc+= '<INPUT TYPE="button" NAME="clear" VALUE="  c  " OnClick="Calc.Input.value = \'\'">'
+        calc+= '<INPUT TYPE="button" NAME="zero"  VALUE="  0  " OnClick="Calc.Input.value += \'0\'">'
+        calc+= '<INPUT TYPE="button" NAME="DoIt"  VALUE="  =  " OnClick="Calc.Input.value = eval(Calc.Input.value)">'
+        calc+= '<INPUT TYPE="button" NAME="div"   VALUE="  /  " OnClick="Calc.Input.value += \' / \'">'
+        calc+= '<br>'
+        calc+= '</TD>'
+        calc+= '</TR>'
+        calc+= '</TABLE>'
+        calc+= '</FORM>'
+
+        calc+= '<p align="center"><font face="arial" size="-2">This free script provided by</font><br>'
+        calc+= '<font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript'
+        calc+= 'Kit</a></font></p>'
+
+        f = open("html.txt", "r")
+        
+        return f.read()
+
+if __name__ == "__main__":
+        app.run(host="0.0.0.0", port="5000")
